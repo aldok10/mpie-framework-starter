@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  mpie-framework:
+    image: $REGISTRY_URL/$PROJECT_NAME:test
+    environment:
+      - "APP_PROJECT=mpie-framework"
+      - "APP_ENV=test"
+    ports:
+      - 8989:8989
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+      update_config:
+        parallelism: 2
+        delay: 5s
+        order: start-first
+    networks:
+      - mpie-framework-net
+    configs:
+      - source: mpie-framework-config
+        target: /www/.env
+configs:
+  mpie-framework-config:
+    external: true
+networks:
+  mpie-framework-net:
+    external: true

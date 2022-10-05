@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use Mpie\Routing\Annotation\Controller;
+use Mpie\Routing\Annotation\GetMapping;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
+#[Controller(prefix: '/{{path}}')]
+class {{class}}
+{
+    #[GetMapping(path: '/')]
+    public static function index(ServerRequestInterface $request): ResponseInterface
+    {
+    }
+}

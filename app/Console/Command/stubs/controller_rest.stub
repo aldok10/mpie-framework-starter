@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use Mpie\Routing\Annotation\Controller;
+use Mpie\Routing\Annotation\GetMapping;
+use Mpie\Routing\Annotation\DeleteMapping;
+use Mpie\Routing\Annotation\RequestMapping;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
+#[Controller(prefix: '/{{path}}')]
+class {{class}}
+{
+    #[GetMapping(path: '/')]
+    public static function index(ServerRequestInterface $request): ResponseInterface
+    {
+    }
+
+    #[GetMapping(path: '/<id>')]
+    public static function show(ServerRequestInterface $request, $id): ResponseInterface
+    {
+    }
+
+    #[DeleteMapping(path: '/<id>')]
+    public static function delete(ServerRequestInterface $request, $id): ResponseInterface
+    {
+    }
+
+    #[RequestMapping(path: '/<id>', methods: ['PUT', 'PATCH'])]
+    public static function update(ServerRequestInterface $request, $id): ResponseInterface
+    {
+    }
+}
