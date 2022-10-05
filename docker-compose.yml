@@ -6,6 +6,8 @@ services:
       - .:/www
     ports:
       - "8989:8989"
+    networks:
+      - docker-net
     links:
       - redis
 

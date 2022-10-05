@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// use Mpie\Redis\Connector\BaseConnector;
+use Mpie\Redis\Connector\SwoolePoolConnector;
+
 /**
  * This file is part of Mpie Framework.
  *
@@ -19,10 +22,18 @@ return [
     // ],
     'handler' => \Mpie\Session\Handler\RedisHandler::class,
     'config'  => [
-        'connector' => \Mpie\Redis\Connector\BaseConnector::class,
+        'connector' => SwoolePoolConnector::class,
         'prefix'    => 'PHP_SESS:',
         'host'      => '127.0.0.1',
         'port'      => 6379,
         'expire'    => 3600,
     ],
+    // 'handler' => \Mpie\Session\Handler\RedisHandler::class,
+    // 'config'  => [
+    //     'connector' => BaseConnector::class,
+    //     'prefix'    => 'PHP_SESS:',
+    //     'host'      => '127.0.0.1',
+    //     'port'      => 6379,
+    //     'expire'    => 3600,
+    // ],
 ];
